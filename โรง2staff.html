@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>กรอกเมนูโรงอาหาร 2</title>
+  <title>กรอกเมนูโรงอาหาร 1</title>
   <link rel="manifest" href="./manifest.json">
   <link rel="icon" href="./logo.png">
   <meta name="theme-color" content="#ff99cc">
@@ -17,17 +17,12 @@
       padding: 12px;
       display: flex;
       align-items: center;
-      justify-content: center; /* ทำให้ title อยู่กลาง */
-      position: relative; /* เพื่อให้ปุ่ม Back ใช้ absolute */
+      justify-content: center; /* title กลาง */
+      position: relative;
     }
-    .title {
-      font-weight: bold;
-      font-size: 18px;
-      color: #fff;
-    }
+    .title { font-weight: bold; font-size: 18px; color: #fff; }
     .menu-icon {
       position: absolute;
-      left: 10px;
       top: 50%;
       transform: translateY(-50%);
       font-size: 24px;
@@ -37,10 +32,15 @@
       background: none;
       border: none;
     }
+    .menu-icon.left { left: 10px; }
+    .menu-icon.right { right: 10px; }
 
     /* Side menu */
-    .side-menu { position: fixed; top: 0; left: -280px; width: 280px; height: 100%; background: #fff0f5;
-                 box-shadow: 2px 0 5px rgba(0,0,0,0.3); padding: 20px; transition: left 0.3s ease; z-index: 1000; }
+    .side-menu { 
+      position: fixed; top: 0; left: -280px; width: 280px; height: 100%; 
+      background: #fff0f5; box-shadow: 2px 0 5px rgba(0,0,0,0.3); padding: 20px; 
+      transition: left 0.3s ease; z-index: 1000; 
+    }
     .side-menu h3 { margin-top: 0; }
     .side-menu input, .side-menu button { display: block; width: 100%; padding: 12px; margin: 10px 0; border-radius: 12px; font-weight: bold; font-size: 14px; cursor: pointer; }
     .side-menu input { border: 2px solid #ff6699; }
@@ -76,7 +76,7 @@
 <body>
   <!-- Side menu -->
   <div class="side-menu" id="sideMenu">
-    <h3>เมนู</h3>
+    <h3>เมนูจัดการข้อมูล</h3>
     <label>ลบข้อมูลโดยระบุวัน/เดือน/ปี</label>
     <input type="date" id="deleteDate">
     <button onclick="deleteDateData()">ลบข้อมูลวันที่นี้</button>
@@ -87,8 +87,9 @@
 
   <!-- Header -->
   <div class="header">
-    <button class="menu-icon" onclick="history.back()">←</button>
+    <button class="menu-icon left" onclick="history.back()">←</button>
     <div class="title">กรอกเมนูโรงอาหาร 2</div>
+    <button class="menu-icon right" onclick="toggleMenu()">☰</button>
   </div>
 
   <p>โรงอาหาร 2</p>
