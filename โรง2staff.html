@@ -144,6 +144,7 @@
       if (!data[month]) data[month] = [];
       data[month].push({ date, menu, meal });
       localStorage.setItem('canteen2Data', JSON.stringify(data));
+       window.location.href = "ดูเมนูโรง2.html";
 
       alert("เผยแพร่เรียบร้อย!");
     }
@@ -180,6 +181,7 @@
         for (let reg of regs) { reg.unregister(); }
       });
     }
+    
   </script>
 </body>
 </html>
